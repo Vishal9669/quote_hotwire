@@ -1,8 +1,9 @@
 class QuotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @quotes = Quote.ordered
+    @quotes = current_user.quotes
   end
 
   def show
@@ -13,7 +14,7 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = Quote.new(quote_params)
+    @quote = current_user.quotes.new(quote_params)
 
     if @quote.save
       respond_to do |format|

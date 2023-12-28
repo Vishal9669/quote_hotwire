@@ -23,6 +23,9 @@ gem "turbo-rails", "~> 1.0"
 #add gem for form's view
 gem "simple_form", "~> 5.1.0"
 
+#add devise gem for user's authentication
+gem "devise"
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 

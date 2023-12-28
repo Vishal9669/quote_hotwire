@@ -1,0 +1,13 @@
+<header class="navbar">
+  <% if user_signed_in? %>
+    <div style="position: absolute; top: 5; right: 0; color:red;">
+      <% if user_signed_in? && current_user.present? %>
+        <span>Welcome, <%= current_user.name %></span>
+      <% end %>
+      <%= button_to "Sign out",
+                    destroy_user_session_path,
+                    method: :delete,
+                    class: "btn btn--dark ml-2" %>
+    </div>
+  <% end %>
+</header>
