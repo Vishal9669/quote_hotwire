@@ -1,10 +1,10 @@
-<main class="container">
+<%= turbo_stream_from "quotes" %>
+<div class="container">
   <div class="header">
     <h1>Quotes</h1>
-    <%= link_to "New quote",
-                new_quote_path,
-                class: "btn btn--primary" %>
+    <%= render "form", quote: Quote.new %>
   </div>
-
-  <%= render @quotes %>
-</main>
+  <%= turbo_frame_tag "quotes" do %>
+    <%= render @quotes %>
+  <% end %>
+</div>
